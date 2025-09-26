@@ -1,0 +1,155 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden; /* Empêche de scroller sur le côté */
+}
+
+/* Le fond d'écran qui va changer de couleur */
+.fond-anime {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    
+    /*transition douce de la couleur  */
+    transition: opacity 1.5s;
+    opacity: 1;
+
+    /* Couleur de fond par défaut */
+    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+}
+
+/* La boîte principale de l'application */
+#application {
+    max-width: 400px;
+    margin: 40px auto; /* Centre la boîte */
+    background: rgba(255, 255, 255, 0.6); /* Fond blanc un peu transparent */
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Ombre pour donner du relief */
+    padding: 30px;
+    text-align: center;
+}
+
+/* Le formulaire de recherche */
+#formulaire-recherche {
+    display: flex; /* Aligne les éléments côte à côte */
+    gap: 10px; /* Espace entre le champ et les boutons */
+    margin-bottom: 25px;
+}
+
+#champ-ville {
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #66a6ff;
+    color: white;
+    font-size: 1em;
+    cursor: pointer; 
+}
+
+button:hover {
+    background: #47453f; /* Le bouton change de couleur au survol */
+}
+
+/* Le conteneur du cercle de chargement */
+#chargement {
+    min-height: 80px;
+    display: none; /* Caché par défaut */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Le cercle qui tourne */
+.cercle-chargement {
+    border: 4px solid #e3f0ff;
+    border-top: 4px solid #66a6ff; /* Couleur du haut différente pour voir la rotation */
+    border-radius: 50%; /* Pour faire un cercle parfait */
+    width: 36px;
+    height: 36px;
+    animation: tourner 1s linear infinite; /* L'animation qui le fait tourner */
+}
+
+/* Définition de l'animation "tourner" */
+@keyframes tourner {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+#meteo-resultats {
+    margin: 25px 0;
+    min-height: 120px;
+}
+
+.icone-meteo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc; /* Petite ligne de séparation */
+}
+
+#bouton-vider-historique {
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: transform 0.2s; /* Petite animation au survol */
+}
+
+#bouton-vider-historique:hover {
+    transform: scale(1.2); /* Grossit un peu au survol */
+}
+
+
+/* La liste de l'historique */
+#historique {
+    list-style: none; /* Enlève les puces de la liste */
+    padding: 0;
+    margin: 0;
+}
+
+#historique li {
+    background: #e3f0ff;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#historique li:hover {
+    background: #b3d1ff;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+    #application {
+        width: 90%;
+        margin: 10px auto;
+        padding: 20px;
+    }
+    #formulaire-recherche {
+        flex-direction: column; /* Les éléments se mettent les uns sous les autres */
+    }
+}

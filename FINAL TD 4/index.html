@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma Météo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cet élément servira pour notre fond d'écran qui change de couleur -->
+    <div class="fond-anime"></div>
+
+    <div id="application">
+        <h1>🌦️ Ma Météo</h1>
+        
+        <form id="formulaire-recherche">
+            <input type="text" id="champ-ville" placeholder="Entrez le nom d'une ville...">
+            <button type="submit">Chercher</button>
+            <button type="button" id="bouton-gps" title="Utiliser ma position">📍</button>
+        </form>
+
+        <!-- Un petit cercle qui tourne pour montrer que ça charge -->
+        <div id="chargement">
+            <div class="cercle-chargement"></div>
+        </div>
+
+        <!--les résultats de la météo -->
+        <div id="meteo-resultats"></div>
+
+        <h2>
+            Villes précédentes
+            <span id="bouton-vider-historique" title="Vider l'historique">🗑️</span>
+        </h2>
+        
+        <!-- La liste des villes déjà cherchées -->
+        <ul id="historique"></ul>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
